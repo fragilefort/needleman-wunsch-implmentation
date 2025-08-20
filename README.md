@@ -32,6 +32,7 @@ Compile with:
 
 ```bash
 g++ -std=c++17 -O2 -pthread -o align align.cpp
+```
 
 
 ```bash
@@ -65,7 +66,7 @@ This controls how many asynchronous threads the program can spawn during traceba
 ```
 
 ## How It Works
-1. DP Recurrence
+### DP Recurrence
 
 The algorithm fills a DP matrix of size (len(seq1)+1) x (len(seq2)+1).
 Each cell stores the best score from:
@@ -76,8 +77,7 @@ Up (gap in sequence 2)
 
 Left (gap in sequence 1)
 
-
-2. Pointer Bitmask
+### Pointer Bitmask
 
 Instead of storing only the best score, we also store which direction(s) led to it:
 
@@ -89,7 +89,7 @@ Left = 4
 
 Just in case we needed all optimal alignments
 
-3. Multithreaded Traceback
+### Multithreaded Traceback
 
 Traceback starts from the bottom-right of the matrix.
 
@@ -97,7 +97,7 @@ If multiple paths exist (bitmask > 1), each path may be explored in parallel wit
 
 This speeds up enumeration of many alignments, though in the worst case (many ties) it can still explode combinatorially.
 
-4. Async Throttling
+### Async Throttling
 
 To prevent spawning unbounded threads:
 
