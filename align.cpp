@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
   int max_tasks = 0; // if 0 -> auto (hw conc or 4)
   string file1, file2;
 
-  // simple arg parsing
+  //argument parsing
   int idx = 1;
   while (idx < argc) {
     string a = argv[idx];
