@@ -41,23 +41,23 @@ g++ -std=c++17 -O2 -pthread -o align align.cpp
 ```
 
 ## Options
-
+```bash
 --one-alignment
-Return a single optimal deterministic alignment (default).
+ # Return a single optimal deterministic alignment (default).
 
 --score-only
-Only give you the alignment score without the actual alignment
+ # Only give you the alignment score without the actual alignment
 
 --max-alignment <int>
-Controls how many alignments the program will actually return, default is 10000
+# Controls how many alignments the program will actually return, default is 10000
 
 --max-tasks
-This controls how many asynchronous threads the program can spawn during traceback
+# This controls how many asynchronous threads the program can spawn during traceback
 
 --file1
 
 --file2
-
+```
 ### simply run ./align if you want to see the options
 
 ## Example usage (files in this repository)
